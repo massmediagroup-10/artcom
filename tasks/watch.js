@@ -18,7 +18,7 @@ gulp.task('watch', function () {
         SASS    = gulp.watch(['app/*.scss', 'app/scss/**/*.scss'], ['styles']),
         FONTS   = gulp.watch(['app/fonts/*.*', 'app/fonts/**/*.*'], ['fonts']),
         IMG     = gulp.watch(['app/img/*.*', 'app/img/**/*.*'], ['image']),
-        BOWER   = gulp.watch(['bower_components/**/*.*', 'bower_components/**/**', 'bower.json'], ['bundle-libraries', 'styles']);
+        BOWER   = gulp.watch(['bower_components/**/*.*', 'bower_components/**/**', 'bower.json'], ['bundle-libraries']);
 
     var log = function (event) {
         if (event.type === 'deleted') {

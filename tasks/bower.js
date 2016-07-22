@@ -50,6 +50,8 @@ function addPackage(name){
 }
 
 function bowerMain (extension) {
+  var mainFiles = [];
+
   // calculate the order of packages
   underscore.each(bowerPackages, function(value, key){
     if(exclude.indexOf(key) === -1){ // add to packagesOrder if it's not in exclude
@@ -61,25 +63,31 @@ function bowerMain (extension) {
   underscore.each(packagesOrder, function(bowerPackage){
     var info = require(bowerDir + '/' + bowerPackage + '/bower.json');
     var main = info.main;
-    var mainFile = main;
-
+    var packages = [];
+    var package;
+    
     // get only the .js file if mainFile is an array
     if(underscore.isArray(main)){
       underscore.each(main, function(file){
         if(underscoreStr.endsWith(file, extension)){
-          mainFile = file;
+          package = bowerDir + '/' + bowerPackage + '/' + file;
+          packages.push(package.split('../')[1]);
         }
       });
+    } else {
+        if(underscoreStr.endsWith(main, extension)){
+          package = bowerDir + '/' + bowerPackage + '/' + main;
+          packages.push(package.split('../')[1]);
+        }
     }
 
-    // make the full path
-    mainFile = bowerDir + '/' + bowerPackage + '/' + mainFile;
+    packages.forEach(function (package) {
+      mainFiles.push(package);
+    })
 
-    // only add the main file if it's a js file
-    if(underscoreStr.endsWith(mainFile, extension)){
-      mainFiles.push(mainFile.split('../')[1]); //.split() to remove '../' to work properly
-    }
   });
+
+  return mainFiles;
 }
 
 // TASKS
@@ -94,9 +102,9 @@ gulp.task('bower', function(cb){
 });
 
 gulp.task('bundle-libraries', ['bower'], function(){  
-  // run the gulp stream
-  bowerMain('.js'); 
-  return gulp.src(mainFiles)
+  // run the gulp stream   
+  console.log(config.notify.update(bowerMain('.js')));
+  return gulp.src(bowerMain('.js'))
     .pipe(sourcemaps.init({loadMaps : true}))
       .pipe(plugins.concat('bower.js'))
       .pipe(gulpIf(config.production, plugins.uglify()))
@@ -106,8 +114,8 @@ gulp.task('bundle-libraries', ['bower'], function(){
 
 gulp.task('bundle-libraries-css', function(){  
   // run the gulp stream
-  bowerMain('.css'); 
-  return gulp.src(mainFiles)
+  console.log(config.notify.update(bowerMain('.css')));
+  return gulp.src(bowerMain('.css'))
     .pipe(sourcemaps.init({loadMaps : true}))
       .pipe(plugins.concat('bower.css'))
       .pipe(gulpIf(config.production, plugins.minifyCss()))

@@ -15,3 +15,10 @@ gulp.task('image', function () {
         .pipe(plugins.size())
         .pipe(gulp.dest(config.build.images));
 });
+
+gulp.task('media', function () {
+
+    console.log(config.notify.update('\n--------- Media dest --------------------------------------------\n'));
+    return gulp.src([config.source.media])
+        .pipe(gulp.dest(config.build.media));
+});

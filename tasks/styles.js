@@ -18,12 +18,7 @@ var callback = function (err) {
 gulp.task('sass', function () {
     console.log(config.notify.update('\n--------- Running SASS tasks -------------------------------------------'));
     return gulp.src(['app/scss/main.scss'])  
-        .pipe(plugins.sass({
-                includePaths: [
-                    './bower_components/bootstrap-sass/assets/stylesheets',
-                    './bower_components/font-awesome/scss',                     
-                ]
-            })
+        .pipe(plugins.sass({})
             .on("error", plugins.sass.logError))
         .pipe(plugins.size())
         .pipe(gulp.dest(config.source.css));

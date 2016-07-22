@@ -16,8 +16,9 @@ var config =  function() {
         images  : 'app/img',
         partials: 'app/partials',
         fonts   : 'app/fonts',
+        media   : 'app/media/*.*',
         bower   : './bower_components',
-        zip     : './zip'
+        zip     : './zip',
     };
 
     // Build Path
@@ -26,7 +27,9 @@ var config =  function() {
         css    : 'build/css',
         js     : 'build/js',
         images : 'build/img',
-        fonts  : 'build/fonts'
+        fonts  : 'build/fonts',
+        cssfonts  : 'build/css/fonts',
+        media  : 'build/media'
     };
 
     // Server Configuration
@@ -70,7 +73,7 @@ var config =  function() {
     };
 
     // CSS autoprefix config
-    var browserVersion = ['last 5 versions'];
+    var browserVersion = ['last 2 versions'];
 
     return {
         source: src,
