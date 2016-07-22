@@ -1,0 +1,131 @@
+.navbar{
+	&-header{
+		@extend .col-sm-3;
+		&-logo{
+			line-height: 100px;
+			display: block;
+			transition: 250ms all ease; 
+			img{
+				vertical-align: middle;
+				transition: 250ms all ease;
+			}
+		}
+	}
+	&-main{
+		background: #000000;
+		background: linear-gradient(to right,  #000000 0%,#000000 27%,#2d2d2d 46%,#2d2d2d 56%,#000000 74%,#000000 100%);
+		border-color: #808080;
+		border-width: 0 0 1px 0;
+		border-radius: 0;
+		margin-bottom: 0;
+		transition: 250ms all ease;
+		
+		&.fixed{
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			z-index: 5;
+			.navbar-nav{
+				li a{			
+					@media (min-width: $screen-lg-min) {		
+						line-height: 70px - $grid-gutter-width; 
+					}
+				}
+			}
+			.navbar-header-logo{
+				line-height: 70px; 
+				img{
+					max-height: 50px;
+				}
+			}
+			@media (max-width: $screen-md-max) {
+				.navbar-collapse{
+					top: 70px;
+				}
+			}
+		}
+		.navbar-collapse{
+			box-shadow: none;
+			transition: 250ms all ease;
+
+			@media (max-width: $screen-md-max) {
+			    overflow-y: scroll;
+				position: absolute;
+				z-index: 2;
+				left: 0;
+				right: 0;
+				top: 100px;
+				box-shadow: 0px 0px 18px 2px rgba(0, 0, 0, 0.35);
+			}
+		}
+		.navbar-nav{
+			margin-top: 0;
+			margin-bottom: 0;
+
+			@media (max-width: $screen-md-max) {
+				background: #fff;
+			}
+			li{
+				a{
+					line-height: 100px - $grid-gutter-width; 
+					color: rgb(255, 255, 255);
+					text-transform: uppercase;
+					font-weight: 300;
+					transition: 300ms all ease;
+
+					&:hover,
+					&:focus,
+					&:active{
+						background-color: $activeColor;
+						@media (max-width: $screen-md-max) {
+							background-color: $activeLightColor;
+							color: #fff;
+						}
+					}
+					@media (max-width: $screen-md-max) {
+						color: #494949;
+						text-align: center;
+						line-height: 55px - 20px;
+					}
+				}
+				&.active a{
+					background-color: $activeColor;
+
+					@media (max-width: $screen-md-max) {
+						background-color: $activeLightColor;
+						color: #fff;
+					}
+				}
+				@media (max-width: $screen-md-max) {
+					border-bottom: 1px solid #f2f2f2;
+				}
+			}
+			&.navbar-lang{
+				@media (min-width: $screen-lg-min) {
+					float: right;
+				}
+				li{
+					a{
+						padding-left: $grid-gutter-width/4;
+						padding-right: $grid-gutter-width/4;
+						&:hover,
+						&:focus,
+						&:active{
+							background: transparent;
+							color: $baseColorHover;
+						}
+					}
+					&.active a{
+						background: transparent;
+						color: $baseColorHover;  
+						
+						@media (max-width: $screen-md-max) {
+							color: $activeLightColor
+						}
+					}
+				}
+			}
+		}
+	}
+}

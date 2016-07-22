@@ -1,0 +1,26 @@
+.about{
+	&-image{
+		margin-bottom: 55px;
+	}
+	&-text{
+		font-size: 16px;
+		color: $baseColor;
+
+		p{
+			line-height: 30px;
+    		margin: 0 0 30px 0;
+    		&:first-child{
+				margin-top: -8px;
+    		}	
+    		&:last-child{
+    			margin-bottom: 10px;
+    		}
+		}
+		a{
+			color: $baseColorHover;
+			&:hover{
+				text-decoration: underline;
+			}
+		}
+	}
+}

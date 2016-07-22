@@ -1,0 +1,95 @@
+
+%heading {
+	display: block;
+	font-weight : normal;
+	margin-bottom : 1em;
+	color : $ctextColor;
+} 
+
+a{
+	@extend %link;
+	border:0;
+
+	&:hover{color:$baseColorHover;text-decoration: none;}
+}
+
+.mainheading,.ctext h1{
+	@extend %heading;
+	font-size: 54px;
+	font-weight: 100;
+	color: $baseColorHover;
+	text-transform: uppercase;
+	text-align: center;
+	position: relative;
+    padding-bottom: 34px;
+    margin-bottom: 70px;
+    margin-top: 94px;
+	&:after{
+		content: '';
+		background: #ececec;
+		height: 2px;
+		width: 160px;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+	}
+	@media (max-width: 520px) {
+		font-size: 48px;
+	}
+}
+.subheading,.ctext h2,h2{
+	@extend %heading;
+	font-size: 25px;
+}
+.thirdheading,.ctext h3,h3{
+	@extend %heading;
+	font-size: 22px;
+}
+.fourheading,.ctext h4,h4{
+	@extend %heading;
+	font-size: 18px;
+}
+.fiveheading,.ctext h5,h5{
+	@extend %heading;
+	font-size: 16px;
+}
+
+.ctext {
+	p {
+		margin:0 0 15px 0;
+		line-height: 16px; 
+		font-size: $bodyFontSize; 
+
+		&:last-child{margin-bottom:0;}
+	}
+
+	ul{margin:0em 0 1.8em 0px;
+		&:last-child{margin-bottom:0;}
+		li{
+			position:relative;
+			line-height: 1.80em;
+			font-size:0.875em;
+			letter-spacing: 0.0179em;
+			margin: 0 0 1.8em 15px;
+			&:before{content:'—';position:absolute;left:-15px; top:0; color:$ctextColor;}
+		}
+	}
+	blockquote{
+		position: relative;
+		text-transform: uppercase;
+		margin: 0 0 1.5em 0;
+		padding-left:2.2em;
+		font-size: 1.2em;
+		line-height: 1.6em;
+		letter-spacing: 0.1111em;
+		&:after{content:'';position:absolute;left:0;top:9px;bottom:9px;width:4px;background-color:#edf2f5;}
+	}
+	table{border-collapse:collapse;}
+	table td{border:1px solid;}
+
+	.button{
+		margin-bottom: 5px;
+	}
+}

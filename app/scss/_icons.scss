@@ -1,0 +1,10 @@
+@mixin icons($background, $width, $height) {
+	background: url('../images/#{$background}.png') no-repeat left top;
+	width: $width; 
+	height: $height;
+}
+
+.icon {
+	@extend %inline-middle;
+	
+}

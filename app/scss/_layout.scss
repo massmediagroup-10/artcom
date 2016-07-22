@@ -1,0 +1,37 @@
+.container{
+	@media (max-width: $screen-md-max) {
+		width: 100%;
+	}
+}
+
+.main {
+	.sidebar {
+		width: 180px;
+		float: left;
+	}
+	.content {
+		float: left;
+		width: 780px;
+	}
+}
+
+.footer {
+	position:absolute;
+	bottom:0;
+	left:0;
+	width:100%;
+	z-index:2;
+	overflow:hidden;
+	
+	&_placeholder{
+		height: 0;
+	}
+}
+
+.tabs-list{
+	margin-bottom: 30px;
+}
+
+.section{
+	padding-bottom: 89px;
+}

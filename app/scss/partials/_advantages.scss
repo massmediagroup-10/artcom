@@ -1,0 +1,39 @@
+.advantages{
+	@include background('preview-2.png', left, top)
+	&-item{
+		text-align: center;
+		color: #fff;
+		margin-bottom: 14px;	
+		
+		&:last-child{
+			margin-bottom: 0;
+		}
+		@media (max-width: $screen-sm-max) {
+			margin-bottom: 88px;
+		}
+		&-number{
+			font-size: 70px;
+			font-weight: bold;
+			text-transform: uppercase;  
+			margin-bottom: 15px;
+		}
+		p{
+			font-size: 18px;
+			font-weight: 300;
+			line-height: 0.944;
+			margin-bottom: 20px;
+		}
+		&-image{
+			height: 52px;
+
+			img{
+				vertical-align: middle;
+				max-height: 100%;
+			}
+			&:after{
+				content: '';
+				@extend .vfix;
+			} 
+		}
+	}
+}
