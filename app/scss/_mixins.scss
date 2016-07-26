@@ -1,7 +1,7 @@
-@function pxtopercent($target, $parent: 16) {
+@function pxtopercent($target, $parent: strip-unit($container)) {
   @return percentage($target / $parent);
-} 
-@function px($sizePx, $size100:16) {
+}  
+@function px($sizePx, $size100:strip-unit($bodyFontSize)) {
 	@if not unitless($sizePx) {
 	  $sizePx: strip-units($sizePx);
 	}
@@ -9,6 +9,13 @@
 	  $size100: strip-units($size100);
 	}
 	@return ($sizePx / $size100) * 1em; 
+}
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
 }
 @mixin transition($delay:200, $property:all , $function:linear) {
 	-webkit-transition: $property #{$delay}ms $function;
@@ -91,6 +98,14 @@
 	background-position: $left $top;
 	background-repeat: no-repeat;
 	background-size: cover;
+}
+@mixin full($offset: 0){
+	position:absolute;
+	top:$offset;
+	left:$offset;
+	right:$offset; 
+	bottom:$offset;  
+	margin: auto;
 }
 
 %defaultMargin {

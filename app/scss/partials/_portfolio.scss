@@ -1,0 +1,115 @@
+.portfolio {
+	background: #f8f8f8;
+	padding: 40px 0 50px 0;
+	&-nav {
+		@extend %clear;
+		text-align: center;
+		margin-bottom: 49px;
+		.navbar-nav {
+			background: #fff;
+			box-shadow: 0px 1px 3.88px 0.12px rgba(0, 0, 0, 0.25);
+			margin: 0 auto;
+			display: inline-block;
+			float: none; 
+			li{
+				position: relative;
+				float: left;
+				&:after {
+					content: '';
+					position: absolute;
+					background: #ff5252;
+					transition: 300ms all ease;
+					height: 2px;
+					left: 10px;
+					right: 100%;
+					bottom: 0;
+				}
+				a {
+					background: transparent !important;
+					text-transform: uppercase;
+					&:hover {
+						color: #ff5252;
+					}
+					&:active {
+						cursor: pointer;
+					}
+				}
+				&.active {
+					&:after {
+						right: 10px;
+					}
+					a {
+						background: transparent;
+						color: #ff5252;
+					}
+				}
+			}
+		}
+	}
+	&-item {
+		text-align: center;
+		margin-bottom: 30px;
+			
+		&-inner {
+			position: relative;
+			display: inline-block;
+		height: 200px;
+			&:hover {
+				.portfolio-item-hidden {
+					@include full(18px);
+					opacity: 1;
+				}
+			}
+		}
+		&-hidden {
+			@include full(0);
+  			background-color: rgba(255, 82, 82, 0.902);
+  			color: #fff;
+  			display: flex;
+			align-items: center;
+			justify-content: center;
+			opacity: 0;
+			transition: 400ms all ease;
+			.fa {
+				font-size: 28px;
+				margin-bottom: 10px;
+			}
+			h4 {
+				margin-bottom: 10px;
+			}
+  			h4, a, p  {
+  				color: #fff;
+  				text-decoration: none;
+  				text-transform: uppercase;
+  			}			
+		}
+	}
+}
+
+/* Isotope */
+.isotope-item {
+	z-index: 2;
+}
+.isotope-hidden.isotope-item {
+	pointer-events: none;
+	z-index: 1;
+}
+.isotope, .isotope .isotope-item {
+	transition-duration: 0.6s;
+}
+.isotope {
+	transition-property: height, width;
+}
+.isotope .isotope-item {
+	transition-property: transform, opacity;
+}
+.isotope.no-transition, .isotope.no-transition .isotope-item, .isotope .isotope-item.no-transition {
+	transition-duration: 0s;
+}
+.isotope-item {
+	z-index: 2;
+}
+.isotope-hidden.isotope-item {
+	pointer-events: none;
+	z-index: 1;
+}

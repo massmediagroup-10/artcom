@@ -1,4 +1,13 @@
+.header {
+    padding-bottom: 101px;
+    background: #000;
+}
 .navbar{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 5;
 	&-header{
 		@extend .col-sm-3;
 		&-logo{
@@ -21,11 +30,6 @@
 		transition: 250ms all ease;
 		
 		&.fixed{
-			position: fixed;
-			top: 0;
-			left: 0;
-			right: 0;
-			z-index: 5;
 			.navbar-nav{
 				li a{			
 					@media (min-width: $screen-lg-min) {		
@@ -36,7 +40,7 @@
 			.navbar-header-logo{
 				line-height: 70px; 
 				img{
-					max-height: 50px;
+					//max-height: 50px;
 				}
 			}
 			@media (max-width: $screen-md-max) {
