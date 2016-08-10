@@ -17,11 +17,11 @@ var callback = function (err) {
 
 gulp.task('sass', function () {
    console.log(config.notify.update('\n--------- Running SASS tasks -------------------------------------------'));
-    return gulp.src(['app/scss/main.scss'])  
+    return gulp.src(['app/scss/main.scss'])
         .pipe(plugins.sass({
                 includePaths: [
-                    'app/scss/bootstrap.scss', 
-                    './bower_components/font-awesome/scss'                     
+                    'app/scss/bootstrap.scss',
+                    './bower_components/font-awesome/scss'
                 ]
             })
             .on("error", plugins.sass.logError))
@@ -32,8 +32,8 @@ gulp.task('sass', function () {
 gulp.task('styles', ['sass'], function () {
 
     console.log(config.notify.update('\n--------- Running CSS tasks --------------------------------------------\n'));
-    return gulp.src([config.source.css + '/**/*.css']) 
-        .pipe(autoprefixer({ 
+    return gulp.src([config.source.css + '/**/*.css'])
+        .pipe(autoprefixer({
             browsers: config.browserVersion,
             cascade: false
         }))
