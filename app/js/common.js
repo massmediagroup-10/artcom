@@ -1,10 +1,18 @@
-
   'use strict';
   function scrollUp(block, targetBlock) {
     $(block).click(function (event) {
       event.preventDefault();
-      var target = $(targetBlock).offset().top;
+      var target = (typeof targetBlock !== 'undefined') ? $(targetBlock).offset().top : $('.header').offset().top;
       $('body, html').animate({scrollTop: target}, 800);
+      return false;
+    });
+  }
+
+  function navigation(block) {
+    $(block).click(function(event){
+      var href = $($(this).attr('href'));
+      var target = href.offset().top;
+      $('body, html').animate({scrollTop:target},800);
       return false;
     });
   }
@@ -34,6 +42,24 @@
         centerMode: true,
         centerPadding: '0px',
         focusOnSelect: true
+      });
+    }
+    var servicesSlider = $('.services-slider');
+    if (servicesSlider.length) {
+      servicesSlider.slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
+        fade: true,
+        adaptiveHeight: true
+      });
+
+      $('.services-nav .services-item').click(function(e){
+        e.preventDefault();
+        $('.services-nav .services-item').removeClass('active');
+        $(this).addClass('active');
+        var slideIndex = $(this).index();
+        servicesSlider[0].slick.slickGoTo( parseInt(slideIndex) );
       });
     }
   }
@@ -134,6 +160,12 @@
     slickInit();
     footerplaceholder();
     navbarHeight();
+    scrollUp('.footer-up');
+    navigation('.navbar-main a');
+    $('select').selectize({
+      create: true,
+      sortField: 'text'
+    });
 
     if ($('.advantages').length) {
       var waypoint = new Waypoint({

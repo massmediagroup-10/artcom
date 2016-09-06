@@ -4,7 +4,10 @@
 	font-weight : normal;
 	margin-bottom : 1em;
 	color : $ctextColor;
-} 
+  &.up {
+    text-transform: uppercase;
+  }
+}
 
 a{
 	@extend %link;
@@ -40,7 +43,7 @@ a{
 		font-size: 42px;
 	}
 	.subheading,.ctext h2,h2 {
-		margin-bottom: 0;    
+		margin-bottom: 0;
 		padding-top: 20px;
 	}
 }
@@ -53,18 +56,17 @@ a{
 	line-height: 1.25;
 }
 .thirdheading,.ctext h3,h3{
-	@extend %heading; 
+	@extend %heading;
 	font-size: 36px;
-	font-family: "Times New Roman", serif;
 	color: rgb(255, 255, 255);
-	font-weight: bold;
-    line-height: 1;
-    letter-spacing: 1px;
-    margin-bottom: 33px; 
-    @media (max-width: $screen-xs-max) {
-    	font-size: 24px;
-    	margin-bottom: 10px;
-    }
+	font-weight: 300;
+  line-height: 1;
+  letter-spacing: 1px;
+  margin-bottom: 33px;
+  @media (max-width: $screen-xs-max) {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
 }
 .fourheading,.ctext h4,h4{
 	@extend %heading;
@@ -72,14 +74,34 @@ a{
 }
 .fiveheading,.ctext h5,h5{
 	@extend %heading;
-	font-size: 16px;
+	font-size: 18px;
+  font-weight: bold;
+  color: #5b5e60;
+  text-transform: uppercase;
+  position: relative;
+  margin-bottom: 22px;
+  &:after {
+    content: '';
+    display: block;
+    margin-top: 27px;
+    height: 3px;
+    background: #dadada;
+    width: 70px;
+  }
+}
+
+.detail {
+  color: $baseColorHover;
+  &:hover{
+    text-decoration: underline;
+  }
 }
 
 .ctext {
 	p {
 		margin:0 0 15px 0;
-		line-height: 16px; 
-		font-size: $bodyFontSize; 
+		line-height: 16px;
+		font-size: $bodyFontSize;
 
 		&:last-child{margin-bottom:0;}
 	}

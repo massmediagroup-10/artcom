@@ -1,0 +1,14 @@
+.flashback{
+  padding: px(97) 0 px(97) 0;
+
+  .thirdheading{
+    margin-bottom: 0;
+    line-height: 48px;
+    letter-spacing: -0.1px;
+    @media (max-width: $screen-xs-max) {
+      margin-bottom: 20px;
+    }
+  }
+  &-inner {
+  }
+}

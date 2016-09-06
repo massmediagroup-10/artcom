@@ -1,6 +1,8 @@
 .portfolio {
-	background: #f8f8f8;
-	padding: 40px 0 50px 0;
+	background: $lightGrayColor;
+  .mainheading {
+    margin-bottom: 50px;
+  }
 	&-nav {
 		@extend %clear;
 		text-align: center;
@@ -27,6 +29,9 @@
 				a {
 					background: transparent !important;
 					text-transform: uppercase;
+          line-height: 25px;
+          padding-left: 25px;
+          padding-right: 26px;
 					&:hover {
 						color: #ff5252;
 					}
@@ -46,6 +51,9 @@
 			}
 		}
 	}
+  &-list {
+    margin-bottom: 34px;
+  }
 	&-item {
 		text-align: center;
 		margin-bottom: 30px;

@@ -1,0 +1,60 @@
+.contacts {
+  padding-bottom: 70px;
+  &-col {
+    margin-bottom: 0;
+  }
+  .form-upload {
+      border-width: 1px;
+      border-color: rgb(215, 215, 215);
+      border-style: dashed;
+      border-radius: 5px;
+      padding: 19px 0 14px;
+
+    .btn {
+      margin-bottom: 26px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      input {
+        display: block;
+        @extend %full;
+        opacity: 0;
+        -ms-filter: 'alpha(opacity=0)';
+        direction: ltr;
+      }
+      span {
+        @extend %inline-middle;
+        padding-left: 10px;
+      }
+    }
+    &-area{
+      max-width: 260px;
+      margin: 0 auto;
+    }
+    &-empty{
+        color: rgb(148, 148, 148);
+        line-height: 1.429;
+    }
+  }
+  .form-control {
+    color: #949494;
+  }
+  .form-btn {
+    margin-top: 30px;
+  }
+  .selectize-control {
+    height: 46px;
+    color: #949494;
+    .option {
+      color: #949494;
+      &.active {
+        background: #ff9797;
+        color: #fff;
+      }
+    }
+  }
+  .selectize-input {
+    @extend .form-control;
+    @extend .input-lg;
+  }
+}

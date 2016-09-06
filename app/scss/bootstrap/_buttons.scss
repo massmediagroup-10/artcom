@@ -17,6 +17,7 @@
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   border: 0;
   white-space: nowrap;
+  outline: none !important;
   @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $btn-border-radius-base);
   @include user-select(none);
 
@@ -73,6 +74,20 @@ a.btn {
 }
 .btn-primary {
   @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+  &:hover,
+  &:focus,
+  &.focus {
+    background: #e24343;
+  }
+  &:active:hover,
+  &:active,
+  &.active {
+    background: #c84242 !important;
+  }
+}
+
+.btn-gray {
+  @include button-variant(#949494, #eeeeee, #eeeeee);
 }
 // Success appears as green
 .btn-success {

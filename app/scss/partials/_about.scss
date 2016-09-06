@@ -1,4 +1,7 @@
 .about{
+  &.section {
+    padding-bottom: 49px;
+  }
 	&-image{
 		margin-bottom: 55px;
 	}
@@ -11,16 +14,10 @@
     		margin: 0 0 30px 0;
     		&:first-child{
 				margin-top: -8px;
-    		}	
+    		}
     		&:last-child{
     			margin-bottom: 10px;
     		}
-		}
-		a{
-			color: $baseColorHover;
-			&:hover{
-				text-decoration: underline;
-			}
 		}
 	}
 }

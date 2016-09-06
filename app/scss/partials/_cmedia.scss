@@ -1,0 +1,14 @@
+.cmedia {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+
+  &.shadow:before {
+    content: '';
+    @extend %full;
+    background-color: rgb(0, 0, 0);
+    opacity: 0.502;
+  }
+
+}

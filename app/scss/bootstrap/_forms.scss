@@ -354,7 +354,7 @@ input[type="checkbox"] {
   }
 }
 
-@include input-size('.input-lg', $input-height-large, $padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $input-border-radius-large);
+@include input-size('.input-lg', $input-height-large, 10px, 13px, 16px, $line-height-large, $input-border-radius-large);
 .form-group-lg {
   .form-control {
     height: $input-height-large;

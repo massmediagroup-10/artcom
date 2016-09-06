@@ -1,0 +1,65 @@
+.footer {
+  background: #000000;
+  background: linear-gradient(to right,  #000000 0%,#000000 27%,#2d2d2d 46%,#2d2d2d 56%,#000000 74%,#000000 100%);
+  &-contacts {
+    margin-top: 71px;
+    margin-bottom: 63px;
+    .fa {
+      font-size: 40px;
+      color: $baseColorHover;
+      float: left;
+      line-height: 34px;
+      margin-right: 20px;
+
+      &.fa-envelope {
+        font-size: 35px;
+      }
+      &.fa-mobile-phone {
+        font-size: 50px;
+      }
+    }
+    .contacts-content {
+      margin-left: 42px;
+      p {
+        font-weight: 300;
+        b {
+          font-weight: normal;
+        }
+      }
+    }
+  }
+  &-bottom {
+    border-top: 1px solid #949494;
+    padding: 23px 0;
+  }
+  p{
+    color: #fff;
+    font-size: 16px;
+    line-height: 27px;
+    margin-bottom: 12px;
+    @extend %last;
+  }
+  a{
+    color: #fff;
+  }
+  &-bottom {
+    p {
+      font-size: 14px;
+    }
+  }
+  &-up{
+    background-color: rgb(46, 46, 46);
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    bottom: 100%;
+    left: calc(50% - 25px);
+    border-radius: 5px 5px 0px 0;
+    font-size: 30px;
+    text-align: center;
+    &:hover{
+      background: #383838;
+    }
+  }
+}

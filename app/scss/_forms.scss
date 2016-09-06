@@ -1,4 +1,4 @@
-%input{	
+%input{
 	display: block;
 	width: 100%;
 	outline: none;
@@ -8,19 +8,18 @@
 	outline: none;
 	font-family: $fontFamily;
 }
- 
+
 .form{
 	position: relative;
 	legend{
 		@extend .subheading;
-	} 
+	}
 	&-field{
-		margin-bottom: 15px; 
+		margin-bottom: 15px;
 		label{
-			font-size: $bodyFontSize; 
+			font-size: $bodyFontSize;
 			display: block;
 			margin-bottom: 15px;
 		}
-		@extend %last;
 	}
 }

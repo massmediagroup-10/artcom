@@ -1,0 +1,79 @@
+.services {
+  background: $lightGrayColor;
+  &-item {
+    text-align: center;
+    margin-bottom: 25px;
+    a{
+      text-decoration: none;
+    }
+    &-image {
+      border-width: 1px;
+      border-color: rgb(207, 207, 207);
+      border-style: solid;
+      border-radius: 5px;
+      background-color: rgb(255, 255, 255);
+      box-shadow: 0px 1px 3.88px 0.12px rgba(0, 0, 0, 0.25);
+      width: 100px;
+      height: 100px;
+      margin: 0 auto;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 300ms all ease;
+
+      &:hover{
+        background-color: $baseColorHover;
+        .icon, img {
+          -webkit-filter: brightness(0) invert(1);
+          filter: brightness(0) invert(1);
+        }
+      }
+      .icon, img{
+      }
+    }
+    p{
+        font-size: 18px;
+        color: rgb(91, 94, 96);
+        line-height: 1.444;
+    }
+    &.active {
+      .services-item-image{
+        background-color: $baseColorHover;
+        .icon, img {
+          -webkit-filter: brightness(0) invert(1);
+          filter: brightness(0) invert(1);
+        }
+      }
+    }
+  }
+  &-nav {
+    margin-bottom: 36px;
+  }
+  &-slider{
+    margin-bottom: 0;
+    &-image {
+      padding-top: 3px;
+      padding-bottom: 3px;
+      img {
+        border-radius: 5px;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0px 1px 3.88px 0.12px rgba(0, 0, 0, 0.25);
+        padding: 6px;
+      }
+    }
+    &-text {
+      margin-bottom: 40px;
+    }
+    h5 {
+
+    }
+    p{
+      font-size: 16px;
+      color: rgb(117, 117, 117);
+      line-height: 1.875;
+      text-align: left;
+      margin-bottom: 15px;
+    }
+  }
+}

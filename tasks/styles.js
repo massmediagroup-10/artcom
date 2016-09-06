@@ -5,7 +5,8 @@ var gulp = require('gulp'),
     config = require('./config'),
     gulpIf = require('gulp-if'),
     gulploadPlugins = require('gulp-load-plugins'),
-    autoprefixer = require('gulp-autoprefixer');
+    autoprefixer = require('gulp-autoprefixer'),
+    sourcemaps = require('gulp-sourcemaps');
 
 var plugins = gulploadPlugins();
 var config = require('./config');
@@ -18,13 +19,15 @@ var callback = function (err) {
 gulp.task('sass', function () {
    console.log(config.notify.update('\n--------- Running SASS tasks -------------------------------------------'));
     return gulp.src(['app/scss/main.scss'])
-        .pipe(plugins.sass({
-                includePaths: [
-                    'app/scss/bootstrap.scss',
-                    './bower_components/font-awesome/scss'
-                ]
-            })
-            .on("error", plugins.sass.logError))
+        .pipe(sourcemaps.init())
+          .pipe(plugins.sass({
+                  includePaths: [
+                      'app/scss/bootstrap.scss',
+                      './bower_components/font-awesome/scss'
+                  ]
+              })
+              .on("error", plugins.sass.logError))
+        .pipe(sourcemaps.write())
         .pipe(plugins.size())
         .pipe(gulp.dest(config.source.css));
 });

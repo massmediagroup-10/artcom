@@ -15,7 +15,8 @@
     "slick-carousel": "~1.5.9",
     "bootstrap-sass": "~3.3",
     "font-awesome": "^4.*",
-    "waypoints": "~4.0.0"
+    "waypoints": "~4.0.0",
+    "selectize": "*"
   },
   "main": "",
   "private": true,

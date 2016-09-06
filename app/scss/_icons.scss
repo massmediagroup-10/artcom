@@ -1,10 +1,51 @@
 @mixin icons($background, $width, $height) {
 	background: url('../images/#{$background}.png') no-repeat left top;
-	width: $width; 
+	width: $width;
 	height: $height;
 }
 
 .icon {
 	@extend %inline-middle;
-	
+  background-repeat:no-repeat;
+
+  &-clip {
+    width: 20px;
+    height: 22px;
+    background-image: url(../img/icon-clip.png);
+  }
+}
+
+@mixin stitches-sprite($x: 0, $y: 0, $width: 0, $height: 0) {
+  background-position: $x $y;
+  width: $width;
+  height: $height;
+}
+
+.sprite {
+  background-image: url(../img/services-sprite.png);    background-repeat: no-repeat;
+  display: inline-block;
+
+  &.sprite-service-1 {
+    @include stitches-sprite(-1px, -1px, 58px, 44px);
+  }
+
+  &.sprite-service-2 {
+    @include stitches-sprite(-61px, -1px, 28px, 46px);
+  }
+
+  &.sprite-service-3 {
+    @include stitches-sprite(-1px, -49px, 51px, 45px);
+  }
+
+  &.sprite-service-4 {
+    @include stitches-sprite(-54px, -49px, 55px, 45px);
+  }
+
+  &.sprite-service-5 {
+    @include stitches-sprite(-91px, -1px, 33px, 45px);
+  }
+
+  &.sprite-service-6 {
+    @include stitches-sprite(-1px, -96px, 53px, 46px);
+  }
 }
