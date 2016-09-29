@@ -1,8 +1,33 @@
-.popup{
-  max-width: 1100px;
-	&-inner{
-		padding: 20px 20px;
-	}
+.modal{
+  //display: block;
+  padding: 0 !important;
+  .close {
+    color: $baseColor;
+    opacity: 1;
+    &:hover {
+      color: $baseColorHover;
+    }
+    .fa-close {
+      font-size: 24px;
+    }
+  }
+  &-slider {
+    @media (max-width: $screen-md-max) {
+      margin-bottom: 30px;
+    }
+  }
+  &-header {
+    border: 0;
+    padding: 10px 10px 20px 10px;
+  }
+  &-footer {
+    border: 0;
+    padding: 10px;
+  }
+  &-dialog {
+    width: calc(100% - 20px);
+    max-width: 1100px;
+  }
   &-portfolio {
     h3 {
       color: $baseColorHover;

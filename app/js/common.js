@@ -17,15 +17,7 @@
     });
   }
 
-  function slickInit() {
-    if ($('.slider').length) {
-      $('.slider').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: true,
-        fade: true
-      });
-    }
+  function slickModalInit() {
     if ($('.slider-for').length) {
       $('.slider-for').slick({
         slidesToShow: 1,
@@ -57,6 +49,17 @@
             }
           }
         ]
+      });
+    }
+  }
+
+  function slickInit() {
+    if ($('.slider').length) {
+      $('.slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
+        fade: true
       });
     }
     var servicesSlider = $('.services-slider');
@@ -181,15 +184,50 @@
     });
   }
 
+  function initMap() {
+    var myLatLng = {lat: 56.9214493, lng: 24.0123207};
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 12,
+      center: myLatLng,
+      scrollwheel: false,
+      styles: [{"featureType":"landscape","stylers":[{"saturation":-100},{"lightness":65},{"visibility":"on"}]},{"featureType":"poi","stylers":[{"saturation":-100},{"lightness":51},{"visibility":"simplified"}]},{"featureType":"road.highway","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"road.arterial","stylers":[{"saturation":-100},{"lightness":30},{"visibility":"on"}]},{"featureType":"road.local","stylers":[{"saturation":-100},{"lightness":40},{"visibility":"on"}]},{"featureType":"transit","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"administrative.province","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":-25},{"saturation":-100}]},{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#ffff00"},{"lightness":-25},{"saturation":-97}]}]
+    });
+
+    var marker = new google.maps.Marker({
+      position: myLatLng,
+      map: map,
+      title: 'Plienciema 16, Mārupe, Latvija. LV-2167',
+      icon: 'img/baloon.png'
+    });
+  }
+
+  function fileinputInit() {
+    $("#upload").fileinput({
+      uploadUrl: '/file-upload-batch/2',
+      maxFilePreviewSize: 25600,
+      dropZoneTitle: 'Перетащите файлы сюда ваши файлы,\
+      что бы загрузить их на сайт\
+      (файл не должен превышать 25 Мб)',
+      showCaption: false
+    });
+  }
+
   $(document).ready(function () {
     slickInit();
+    slickModalInit();
     footerplaceholder();
     navbarHeight();
+    //fileinputInit();
     scrollUp('.footer-up');
     navigation('.navbar-main a');
     $('select').selectize({
       create: true,
       sortField: 'text'
+    });
+
+    $('.modal').on('shown.bs.modal', function (e) {
+      $(window).trigger('resize');
     });
 
     if ($('.advantages').length) {
@@ -205,6 +243,9 @@
         offset: '60%'
       });
     }
+
+    //and start googlemaps
+    initMap();
   });
 
   $(window).on('load', function() {

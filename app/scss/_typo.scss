@@ -11,9 +11,14 @@
 
 a{
 	@extend %link;
+  outline: none !important;
 	border:0;
 
 	&:hover{color:$baseColorHover;text-decoration: none;}
+}
+
+button {
+  outline: none !important;
 }
 
 .mainheading,.ctext h1{

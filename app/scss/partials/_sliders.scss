@@ -63,6 +63,11 @@
       opacity: 0.8;
       cursor: pointer;
       font-size: 25px;
+      @media (max-width: $screen-sm-max) {
+        width: 42px;
+        height: 58px;
+        line-height: 60px;
+      }
       &:hover {
         opacity: 1;
       }
@@ -78,6 +83,7 @@
   &.slider-nav {
     background: #e6e6e6;
     padding: 6px 25px;
+    margin-bottom: 0;
     .slick-arrow {
       background-color: rgb(204, 204, 204);
       width: 20px;

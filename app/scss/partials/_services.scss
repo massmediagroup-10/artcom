@@ -22,6 +22,11 @@
       justify-content: center;
       transition: 300ms all ease;
 
+        @media (max-width: $screen-sm-max) {
+        width: 70px;
+        height: 70px;
+      }
+
       &:hover{
         background-color: $baseColorHover;
         .icon, img {
@@ -33,9 +38,12 @@
       }
     }
     p{
-        font-size: 18px;
-        color: rgb(91, 94, 96);
-        line-height: 1.444;
+      font-size: 18px;
+      color: rgb(91, 94, 96);
+      line-height: 1.444;
+      @media (max-width: $screen-sm-max) {
+        font-size: 14px;
+      }
     }
     &.active {
       .services-item-image{
@@ -52,7 +60,7 @@
   }
   &-slider{
     margin-bottom: 0;
-    @media (max-width: $screen-md-max) {
+    @media (max-width: $screen-md-max) and (min-width: $screen-md-min) {
       padding-left: 65px;
       padding-right: 65px;
     }

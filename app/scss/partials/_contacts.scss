@@ -13,7 +13,6 @@
     .btn {
       margin-bottom: 26px;
       position: relative;
-      overflow: hidden;
       cursor: pointer;
       input {
         display: block;
@@ -31,9 +30,25 @@
       max-width: 260px;
       margin: 0 auto;
     }
-    &-empty{
-        color: rgb(148, 148, 148);
-        line-height: 1.429;
+    &-empty,
+    .file-drop-zone-title {
+      color: rgb(148, 148, 148);
+      line-height: 1.429;
+      font-size: $bodyFontSize;
+      white-space: normal;
+      text-transform: none;
+      font-weight: normal;
+    }
+    .file-preview {
+      position: absolute;
+    }
+    .file-drop-zone-title {
+      padding: 0;
+    }
+    .file-input {
+      .btn-file {
+        display: none;
+      }
     }
   }
   .form-control {
