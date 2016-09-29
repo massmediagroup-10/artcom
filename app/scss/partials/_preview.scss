@@ -2,6 +2,7 @@
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
+  @extend %blackout;
 	min-height: 490px;
 	position: relative;
 

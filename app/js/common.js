@@ -32,16 +32,31 @@
         slidesToScroll: 1,
         arrows: true,
         fade: true,
-        asNavFor: '.slider-nav'
+        asNavFor: '.slider-nav',
+        nextArrow: '<i class="fa fa-chevron-right slick-arrow-next"></i>',
+        prevArrow: '<i class="fa fa-chevron-left slick-arrow-prev"></i>'
       });
       $('.slider-nav').slick({
-        slidesToShow: 3,
+        slidesToShow: 6,
         slidesToScroll: 1,
         asNavFor: '.slider-for',
         dots: false,
-        centerMode: true,
-        centerPadding: '0px',
-        focusOnSelect: true
+        nextArrow: '<i class="fa fa-chevron-right slick-arrow-next"></i>',
+        prevArrow: '<i class="fa fa-chevron-left slick-arrow-prev"></i>',
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 4
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 2
+            }
+          }
+        ]
       });
     }
     var servicesSlider = $('.services-slider');
@@ -51,7 +66,17 @@
         slidesToScroll: 1,
         arrows: true,
         fade: true,
-        adaptiveHeight: true
+        adaptiveHeight: true,
+        nextArrow: '<i class="fa fa-chevron-right slick-arrow-next"></i>',
+        prevArrow: '<i class="fa fa-chevron-left slick-arrow-prev"></i>',
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              arrows: false
+            }
+          }
+        ]
       });
 
       $('.services-nav .services-item').click(function(e){
@@ -182,16 +207,16 @@
     }
   });
 
-  $(window).load(function () {
+  $(window).on('load', function() {
     isotopFilter();
   });
 
-  $(window).resize(function () {
+  $(window).on('resize', function() {
     footerplaceholder();
     navbarHeight();
   });
 
-  $(window).scroll(function () {
+  $(window).on('scroll', function() {
     scrollHandler();
     navbarHeight();
   });

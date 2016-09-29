@@ -1,5 +1,7 @@
 .flashback{
   padding: px(97) 0 px(97) 0;
+  background-attachment: fixed;
+  @extend %blackout;
 
   .thirdheading{
     margin-bottom: 0;

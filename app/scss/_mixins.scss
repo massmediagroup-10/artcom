@@ -1,6 +1,6 @@
 @function pxtopercent($target, $parent: strip-unit($container)) {
   @return percentage($target / $parent);
-}  
+}
 @function px($sizePx, $size100:strip-unit($bodyFontSize)) {
 	@if not unitless($sizePx) {
 	  $sizePx: strip-units($sizePx);
@@ -8,7 +8,7 @@
 	@if not unitless($size100) {
 	  $size100: strip-units($size100);
 	}
-	@return ($sizePx / $size100) * 1em; 
+	@return ($sizePx / $size100) * 1em;
 }
 @function strip-unit($number) {
   @if type-of($number) == 'number' and not unitless($number) {
@@ -73,7 +73,7 @@
 	-ms-border-radius: $top $left $botom $right;
 	border-radius: $top $left $botom $right;
 }
-@mixin vertical-gradient($start-colour, $end-colour) { 
+@mixin vertical-gradient($start-colour, $end-colour) {
     background-color: $start-colour;
     background-image: -webkit-gradient(linear, left top, left bottom, from($start-colour), to($end-colour));
     background-image: -webkit-linear-gradient(top, $start-colour, $end-colour);
@@ -103,8 +103,8 @@
 	position:absolute;
 	top:$offset;
 	left:$offset;
-	right:$offset; 
-	bottom:$offset;  
+	right:$offset;
+	bottom:$offset;
 	margin: auto;
 }
 
@@ -170,7 +170,15 @@
 	position:absolute;
 	top:0;
 	left:0;
-	right:0; 
-	bottom:0;  
+	right:0;
+	bottom:0;
 	margin: auto;
+}
+%blackout{
+  position: relative;
+  &:before {
+    content: '';
+    @extend %full;
+    background: rgba(0, 0, 0, 0.5);
+  }
 }

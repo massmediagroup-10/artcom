@@ -1,5 +1,7 @@
 .advantages{
-	@include background('preview-2.png', left, top);
+	@include background('preview-2.jpg', left, top);
+  background-attachment: fixed;
+  @extend %blackout;
 
 	&-item{
 		text-align: center;

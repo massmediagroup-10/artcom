@@ -4,3 +4,4 @@
 @@include('modernizr.js')
 @@include('jquery.countto.js')
 @@include('jquery.isotope.min.js')
+@@include('bootstrap-modal.js')

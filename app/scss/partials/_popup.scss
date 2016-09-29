@@ -1,5 +1,95 @@
-.popup{ 
+.popup{
+  max-width: 1100px;
 	&-inner{
 		padding: 20px 20px;
 	}
+  &-portfolio {
+    h3 {
+      color: $baseColorHover;
+      font-weight: 200;
+      text-transform: uppercase;
+      margin-bottom: 11px;
+    }
+    h5 {
+      font-weight: 200;
+      margin-bottom: 27px;
+      &:after {
+        content: none;
+      }
+    }
+    a {
+      color: $baseColorHover;
+    }
+  }
+  .portfolio-detail {
+    margin-bottom: 19px;
+    padding: px(31) 0 px(39);
+    position: relative;
+    &:before {
+      content: '';
+      border-top: 2px solid #ececec;
+      width: 160px;
+      display: block;
+      position: absolute;
+      top: 0;
+    }
+    &:after {
+      content: '';
+      border-bottom: 2px solid #ececec;
+      width: 160px;
+      display: block;
+      position: absolute;
+      bottom: 0;
+    }
+    p {
+      font-size: 16px;
+      color: rgb(119, 119, 119);
+      line-height: 1.875;
+      margin-bottom: 35px;
+    }
+    a {
+      font-size: 16px;
+      .fa {
+        margin-right: 8px;
+        font-size: 21px;
+        vertical-align: middle;
+      }
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  .portfolio-shared {
+    display: table;
+    width: 100%;
+    max-width: 350px;
+    &-item {
+      display: table-cell;
+      text-align: center;
+      a {
+        display: block;
+        line-height: 30px;
+        text-decoration: none;
+        border-right: 1px solid #000;
+      }
+      &:first-child a{
+        text-align: left;
+        padding-left: 0;
+      }
+      &:last-child a{
+        border-right: 0;
+      }
+      .fa {
+        color: #000;
+        margin-right: 10px;
+        font-size: 18px;
+        @extend %inline-middle;
+      }
+      span {
+        color: #999999;
+        font-size: 14px;
+        @extend %inline-middle;
+      }
+    }
+  }
 }
