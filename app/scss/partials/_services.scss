@@ -60,7 +60,7 @@
   }
   &-slider{
     margin-bottom: 0;
-    @media (max-width: $screen-md-max) and (min-width: $screen-md-min) {
+    @media (max-width: $screen-md-max) and (min-width: $screen-sm-min) {
       padding-left: 65px;
       padding-right: 65px;
     }

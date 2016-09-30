@@ -37,6 +37,12 @@
         prevArrow: '<i class="fa fa-chevron-left slick-arrow-prev"></i>',
         responsive: [
           {
+            breakpoint: 1199,
+            settings: {
+              slidesToShow: 5
+            }
+          },
+          {
             breakpoint: 768,
             settings: {
               slidesToShow: 4
@@ -206,30 +212,52 @@
     $("#upload").fileinput({
       uploadUrl: '/file-upload-batch/2',
       maxFilePreviewSize: 25600,
-      dropZoneTitle: 'Перетащите файлы сюда ваши файлы,\
-      что бы загрузить их на сайт\
-      (файл не должен превышать 25 Мб)',
-      showCaption: false
+      uploadAsync: false,
+      showRemove: false,
+      showUpload: false,
+      showBrowse: true,
+      browseClass: 'btn btn-default btn-gray btn-lg',
+      browseLabel: 'Прикрепить файл',
+      removeIcon: '<i class="fa fa-close"></i>',
+      browseIcon: '<i class="icon icon-clip"></i>&nbsp;',
+      previewFileIcon: '<i class="file-types file"></i>',
+      allowedPreviewTypes: null, // set to empty, null or false to disable preview for all types
+      previewFileIconSettings: {
+        'doc': '<i class="file-types doc"></i>',
+        'xls': '<i class="file-types xls"></i>',
+        'jpg': '<i class="file-types jpg"></i>',
+        'png': '<i class="file-types png"></i>',
+        'pdf': '<i class="file-types pdf"></i>',
+        'zip': '<i class="file-types zip"></i>',
+      },
+      previewFileExtSettings: {
+        'doc': function(ext) {
+          return ext.match(/(doc|docx)$/i);
+        },
+        'xls': function(ext) {
+          return ext.match(/(xls|xlsx)$/i);
+        },
+        'zip': function(ext) {
+          return ext.match(/(zip|rar|tar|gzip|gz|7z)$/i);
+        }
+      },
+      dropZoneTitle: "<div class='file-preview-text'>Перетащите файлы сюда ваши файлы, что бы загрузить их на сайт (файл не должен превышать 25 Мб)</div>",
+      initialPreview: "<div class='file-preview-text'>Перетащите файлы сюда ваши файлы, что бы загрузить их на сайт (файл не должен превышать 25 Мб)</div>",
+      layoutTemplates: {
+        footer: '<div class="file-thumbnail-footer">\n' +
+        '    <div class="file-caption-name">{caption}{size}</div> {actions}\n </div>'
+      }
     });
   }
 
-  $(document).ready(function () {
-    slickInit();
-    slickModalInit();
-    footerplaceholder();
-    navbarHeight();
-    //fileinputInit();
-    scrollUp('.footer-up');
-    navigation('.navbar-main a');
+  function selectInit() {
     $('select').selectize({
       create: true,
       sortField: 'text'
     });
+  }
 
-    $('.modal').on('shown.bs.modal', function (e) {
-      $(window).trigger('resize');
-    });
-
+  function advantagesWaypointInit() {
     if ($('.advantages').length) {
       var waypoint = new Waypoint({
         element: document.getElementById('advantages'),
@@ -243,7 +271,18 @@
         offset: '60%'
       });
     }
+  }
 
+  $(document).ready(function () {
+    slickInit();
+    slickModalInit();
+    footerplaceholder();
+    navbarHeight();
+    fileinputInit();
+    scrollUp('.footer-up');
+    navigation('.navbar-main a');
+    selectInit();
+    advantagesWaypointInit();
     //and start googlemaps
     initMap();
   });

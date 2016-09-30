@@ -1,6 +1,12 @@
 .modal{
-  //display: block;
+  display: block;
   padding: 0 !important;
+  z-index: -1;
+  visibility: hidden;
+  &-open .modal {
+    z-index: 1050;
+    visibility: visible;
+  }
   .close {
     color: $baseColor;
     opacity: 1;

@@ -5,6 +5,8 @@
 }
 
 .main {
+  position: relative;
+  z-index: 1;
 	.sidebar {
 		width: 180px;
 		float: left;

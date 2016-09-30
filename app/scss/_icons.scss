@@ -49,3 +49,29 @@
     @include stitches-sprite(-1px, -96px, 53px, 46px);
   }
 }
+
+.file-types {
+  background-image: url(../img/file-types.png);    background-repeat: no-repeat;
+  display: inline-block;
+  &.pdf {
+    @include stitches-sprite(0px, 0px, 36px, 41px);
+  }
+  &.xls {
+    @include stitches-sprite(0px, -41px, 36px, 41px);
+  }
+  &.zip {
+    @include stitches-sprite(0px, -82px, 36px, 41px);
+  }
+  &.doc {
+    @include stitches-sprite(0px, -123px, 36px, 41px);
+  }
+  &.png {
+    @include stitches-sprite(0px, -164px, 36px, 41px);
+  }
+  &.jpg {
+    @include stitches-sprite(0px, -205px, 36px, 41px);
+  }
+  &.file {
+    @include stitches-sprite(0px, -246px, 36px, 41px);
+  }
+}

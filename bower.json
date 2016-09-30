@@ -16,8 +16,7 @@
     "bootstrap-sass": "~3.3",
     "font-awesome": "^4.*",
     "waypoints": "~4.0.0",
-    "selectize": "*",
-    "bootstrap-fileinput": "^4.3.*"
+    "selectize": "*"
   },
   "main": "",
   "private": true,
