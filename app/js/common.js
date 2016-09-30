@@ -88,12 +88,16 @@
         ]
       });
 
-      $('.services-nav .services-item').click(function(e){
-        e.preventDefault();
+    $('.services-nav .services-item').click(function(e){
+      e.preventDefault();
         $('.services-nav .services-item').removeClass('active');
         $(this).addClass('active');
         var slideIndex = $(this).index();
         servicesSlider[0].slick.slickGoTo( parseInt(slideIndex) );
+      });
+      servicesSlider.on('afterChange', function(event, slick, currentSlide, nextSlide){
+        $('.services-nav .services-item').removeClass('active');
+        $('.services-nav .services-item:eq('+currentSlide+')').addClass('active');
       });
     }
   }
